@@ -1,0 +1,6 @@
+this is a reading and learning record from Rspec Book.
+using gem:
+  gem install rspec --version 2.0.0.beta.19
+  gem install cucumber --version 0.8.5
+ 
+   
