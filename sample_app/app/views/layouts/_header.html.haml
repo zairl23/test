@@ -1,10 +1,12 @@
-= image_tag("logo.png", :alt => "Sample App", :class => "round")
+- logo= image_tag("logo.png", :alt => "Sample App", :class => "round")
+
+= link_to logo, root_path 
 
 %nav.round
   %ul
     %li
-      = link_to "Home", "#"
+      = link_to "Home", root_path
     %li
-      = link_to "Help", "#"
+      = link_to "Help", help_path
     %li
       = link_to "Sign in", "#"
