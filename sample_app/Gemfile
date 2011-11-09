@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'rack', '1.3.3'
+gem 'compass'
 group :development do
   gem 'rspec-rails'
 end
