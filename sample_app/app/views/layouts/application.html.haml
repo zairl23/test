@@ -4,7 +4,18 @@
     %title
       = title 
     = csrf_meta_tag
-
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
   %body
-    = yield
-     
+    %div.container
+      %header
+        = render 'layouts/header'
+        
+              
+      %section.round 
+        = yield
+      
+      = render 'layouts/footer'
