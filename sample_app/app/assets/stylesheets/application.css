@@ -116,3 +116,30 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* User show page */
+/* line 87, ../../stylesheets/application.sass */
+table.profile {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* line 91, ../../stylesheets/application.sass */
+td.main {
+  width: 70%;
+  padding: 1em;
+}
+
+/* line 95, ../../stylesheets/application.sass */
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffffcc;
+}
+
+/* line 101, ../../stylesheets/application.sass */
+.profile img.gravatar {
+  border: 1px solid #999999;
+  margin-bottom: -15px;
+}
