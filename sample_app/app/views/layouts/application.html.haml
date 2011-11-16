@@ -14,6 +14,10 @@
       %header
         = render 'layouts/header'
         
+      %section.round
+      - flash.each do |key, value|
+        %div{ :class => 'flash'}
+          = value  
               
       %section.round 
         = yield
