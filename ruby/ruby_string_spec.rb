@@ -12,31 +12,73 @@ describe "just hello!" do
     end
 end
 
-describe "string methods test" do 
+describe "String Methods" do
   before(:each) do
-    @a = String.new("hello ruby!")
+    @a = "Hello Ruby!"
   end
   
-  it "test include?" do
-    @a.include?("ll").should == true
+  it "counts characters in a string" do
+    @a.length.should == 11
+    @a.size.should == 11#'章'.size --error
   end
   
-  it "test index" do
-    arr = @a.split(%r{\s*})
-    arr.each do |a|
-      @a.index(a).should == arr.index(a) 
-    #@a.index('h').should == 0
-    #@a.index('e').should == 1
-    #@a.index('l').should == 2 
-   # @a.index('l').should == 3 
-    #@a.index('o').should == 4 
-    #@a.index(' ').should == 5 
-    #@a.index('r').should == 6
-    #@a.index('u').should == 7 
-    #@a.index('b').should == 8
-    #@a.index('y').should == 9 
-    #@a.index('!').should == 10
-    end   
+  it "converts a string to capitalizes" do
+    @a.capitalize.should == "Hello ruby!" #how can be "Hello Ruby!" 
   end
-end
 
+  it "removes ending\n,\r,\t" do
+    b = @a << '\n' #@a << '\n' is not work
+    b.chomp.should == "Hello Ruby!\\n"
+  end
+  
+  it "convert a string to lowcase" do
+    @a.downcase.should == "hello ruby!"
+  end
+  
+  it "question a string about empty" do
+    @a.empty?.should == false
+    @a.clear.empty? == true
+    
+  end
+  
+  it "removes leading white space(s) in a string" do
+    @a = "  Hello Ruby!"
+    @a.lstrip.should == 'Hello Ruby!'#how about kuochong?
+  end
+  
+  it "removes tailing white space(s) in a string" do
+    b = @a << '  '
+    b.rstrip.should == "Hello Ruby!"
+  end
+  
+  it "removes white space(s) in a string" do
+    @a = " hello  "
+    @a.strip.should == 'hello'
+  end
+   
+  it "converts s string in reverse order" do
+    @a.reverse.should == "!ybuR olleH"
+  end
+  
+  it "converts a string's every caracters to upcase" do
+   @a.upcase.should == "HELLO RUBY!"#how about dowcase
+   @a.upcase!
+   @a.downcase.should == "hello ruby!"
+  end
+  
+  it "extracts the character(s) in a string" do
+    @a.slice(-1,1).should == '!'
+    @a.slice(0).should == "H"
+    @a.slice!(0).should == "H"
+    @a.should == 'ello Ruby!'
+    @a.slice(1..2).should == "ll"
+  end
+  
+  it 'add the caracters to a string' do
+    @a.insert(0,'H').should == "HHello Ruby!"
+    @a.insert(-1,'?').should == "HHello Ruby!?"#not "Hello  Ruby?!"
+    @a.insert(-3,'y').should == "HHello Rubyy!?"
+  end
+  
+  
+end
