@@ -58,8 +58,8 @@ describe UsersController do
     describe 'success' do 
       
       before(:each) do 
-        @attr = { :name => "New User",
-                  :email => "user@example.com",
+        @attr = { :name => "Ne User",
+                  :email => "use@example.com",
                   :password => "foobar",
                   :password_confirmation => "foobar" 
                 }
@@ -78,8 +78,13 @@ describe UsersController do
       
       it "should have flash welcome" do
         post :create, :user => @attr
-        falsh[:success].should =~ /welcome to the sample_app/i
+        flash[:success].should =~ /Welcome/i
       end
+      it "should sign the user in" do
+        post :create, :user => @attr
+        controller.should be_signed_in
+      end
+
     end
   end
 end

@@ -14,7 +14,9 @@ Spork.prefork do
 # - These instructions should self-destruct in 10 seconds.  If they don't,
 #   feel free to delete them.
 #
-
+   def test_sign_in(user)
+    controller.sign_in(user)
+   end
 
 
 
@@ -38,6 +40,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -57,5 +60,7 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   
 end
+
+
 
 
