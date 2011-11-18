@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @title = "Sign up"
   end
  
   def show
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user #session helper
       flash[:success] = "Welcome"
 
       redirect_to @user
