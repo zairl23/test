@@ -1,0 +1,4 @@
+
+  gem 'rspec-rails'
+  gem 'watchr'
+  gem 'rspec'
