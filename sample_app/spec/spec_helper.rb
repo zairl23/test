@@ -58,7 +58,8 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-  
+  # http://blog.carbonfive.com/2010/12/10/speedy-test-iterations-for-rails-3-with-spork-and-guard/
+   SampleApp::Application.reload_routes!
 end
 
 

@@ -5,6 +5,7 @@ SampleApp::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   resources :users
   get "users/new"
+  get "users/edit"
   match '/signup', :to => 'users#new'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'

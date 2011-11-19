@@ -84,7 +84,143 @@ describe UsersController do
         post :create, :user => @attr
         controller.should be_signed_in
       end
-
+    end
+  end
+  
+  #test edit method in users_controller
+  describe "GET 'edit'" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+    it "should be success" do
+      get :edit, :id => @user# use :id , not :user
+      response.should be_success
+    end
+    it "should have the right title" do
+      get :edit, :id => @user
+      response.should have_selector("title", :content => "Edit user")
+    end
+    it "should have a link to change the Gravatar" do
+      get :edit, :id => @user
+      gavatar_url = "http://gavatar.com/emails"
+      response.should have_selector("a", :href => gavatar_url, :content => "change")
+    end
+  end
+  
+  #test update method 
+  describe "PUT 'update'" do
+    before(:each)  do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+    # test failure
+    describe "fail" do
+      before(:each) do
+        @attr = { :name => '',
+                  :email => '',
+                  :password => '',
+                  :password_confirmation => ''
+                }
+                 
+      end
+      it "should have the right title" do
+        put :update, :id => @user, :user=> @attr
+        response.should have_selector("title", :content => "Edit user")
+      end
+      it "should render the edit template" do
+        put :update, :id => @user, :user=> @attr
+        response.should render_template('edit')
+      end
+    end
+    # test success
+    before(:each) do
+      @attr = { :name => 'neychang',
+                :email => '123@qq.com',
+                :password => 'asdfgh',
+                :password_confirmation => 'asdfgh'
+              }
+    end
+    it "should change the user's attributes" do
+      put :update, :id => @user, :user=> @attr
+      @user.reload#?
+      @user.name.should == @attr[:name]
+      @user.email.should == @attr[:email]
+    end
+    it "should redirect to the user show page" do
+      put :update, :id => @user, :user => @attr
+      response.should redirect_to(user_path(@user))
+    end
+    it "should have a flash message" do
+      put :update, :id => @user, :user => @attr
+      flash[:success].should =~ /updated/
+    end
+  end
+  
+  describe "authentication of edit/update pages" do
+    before(:each) do
+      @user = Factory(:user)
+    end
+    describe "for not sign in users" do
+      it "should deny access to 'edit'" do
+        get :edit, :id => @user
+        response.should redirect_to(signin_path)  
+      end
+      it "should deny access to 'update'" do
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(signin_path)
+      end
+    end
+    describe "for sign in users" do
+      before(:each) do
+        @wrong_user = Factory(:user, :email => "users@example.net")#pay attention??????
+        test_sign_in(@wrong_user)
+      end
+      it "should require matching users for 'edit'"do
+        get :edit, :id => @user
+        response.should redirect_to(root_path)
+      end
+      it "should require matching users for 'update'" do
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(root_path)  
+      end
+    end
+  end
+  
+  #test index
+  describe "GET 'index'" do
+    #
+    describe "for non-signed-in users" do
+      it "should deny access" do
+        get :index
+        response.should redirect_to(signin_path)
+        flash[:notice].should =~  /sign in/i
+      end
+    end
+    #??????
+    describe "for signed-in users" do
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        second = Factory(:user, :email => "another@example.com")
+        third = Factory(:user, :email => "another@example.net")
+        @users = [@user, second, third]
+      end
+      it "should be successful" do
+        get :index
+        response.should be_success
+      end
+      it "should have the right title" do
+        get :index
+        response.should have_selector("title", :content => "All users")
+      end
+      it "should have an element for each user" do
+        get :index
+        @users.each do |user|
+          response.should have_selector("li", :content => user.name)
+        end
+      end
     end
   end
 end
+
+

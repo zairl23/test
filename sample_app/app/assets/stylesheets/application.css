@@ -187,3 +187,13 @@ td.sidebar {
   font-size: 12px;
   list-style: square;
 }
+
+/*about users */
+/* line 141, ../../stylesheets/application.sass */
+ul.users {
+  margin-top: 1em;
+}
+/* line 143, ../../stylesheets/application.sass */
+ul.users li {
+  list-style: none;
+}
