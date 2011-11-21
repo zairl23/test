@@ -23,9 +23,9 @@ describe "Base" do
     end  
     it "select the element(s)'s index(s) in a array" do
       @a << 1
-      @a.index(1).should == 2
+      @a.index(1).should == 2#first found
       @a.index('Hello').should == 0
-      @a.rindex(1).should == 3
+      @a.rindex(1).should == 3#last found
     end
     it "select the element(s) in a array" do
       @a[0].should == "Hello" 
@@ -47,22 +47,56 @@ describe "Base" do
     end
   end
 
-  describe "Add methods" do
- 
+  describe "Add methods that" do
+    it "add one element to an array's tail" do
+      ((@a << 1) == (@a.push(1))).should == true
+    end
+    it "add one element to an array's head" do
+      @a.unshift(1).should == [1,'Hello','Ruby!',1]
+    end
+    it "add elements to an array" do 
+      (@a.insert(0,1) == @a.unshift(1)).should == true#
+      
+    end
   end
 
   describe "Deltete methods" do
-
+    it "delete an array's tail" do
+      #@a.pop.should_not == ["Hello","Ruby!"]
+      #@a.pop.should_not == @a.last
+      #(@a.pop == @a.last).should == true
+      @a.pop.should == 1
+      @a.last.should == 'Ruby!'
+    end 
+    it "delete an array's head" do 
+      @a.shift.should == "Hello"
+    end
+    it "delete an array's any element" do
+      @a.delete_at(0).should == "Hello"
+    end
   end
 
-  describe "Convert methods" do
-    it "converts a array to the reverse order" do
+  describe "Convert methods that" do
+    it "converts a array to the array with reverse order" do
       @a.reverse.should == [1,'Ruby!', 'Hello']
     end
     it "convert a array in the sortable order" do
       #@a.sort.should == [1,'Ruby!','Hello'] error:comparison of String with 1 failed
       @a = [1,3,2]
       @a.sort.should == [1,2,3]
+    end
+    it "convert a array to the array with uniq elements" do
+      @a << 1
+      @a.uniq.should == ['Hello','Ruby!', 1]
+    end
+    it "convert a array to the string in the printable format" do
+      @a.inspect.class.should == String
+      @a.inspect.should_not == "@a"
+      @a.inspect.should_not == "[\'Hello\', \'Ruby\', 1]"
+      @a.inspect.should_not == "[\"Hello\",\"Ruby!\", 1]"
+      @a.inspect.should == "[\"Hello\", \"Ruby!\", 1]"
+      ([1,2,3].inspect == [1, 2, 3].inspect).should == true
+      (['a','b'].inspect == ['a', 'b'].inspect).should == true
     end
   end
 

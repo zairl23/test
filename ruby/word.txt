@@ -1,0 +1,4 @@
+Ruby：Visual QuickStart Guide
+  Multidimensional Arrays--多维数组
+  indicate--说明
+  inspect--检查
