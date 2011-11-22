@@ -1,4 +1,8 @@
 SampleApp::Application.routes.draw do
+  resources :microposts, :only => [:create, :destroy]
+
+  get "microposts/destroy"
+
   get "sessions/new"
   resources :sessions, :only => [ :new, :create, :destroy ]
   match '/signin', :to => 'sessions#new'
