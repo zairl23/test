@@ -2,6 +2,7 @@ describe "Base" do
 
   before(:each) do
     @a = ['Hello','Ruby!',1]
+    @b = ['Hello',3,1]
   end
 
   describe "Question methods" do
@@ -14,6 +15,32 @@ describe "Base" do
       @a.include?('12').should == false
       @a.include?('llo').should == false
       @a.include?('Hello').should == true 
+    end
+  end
+  
+  describe "Math methods" do
+    it "using +" do
+      (@a + @b).should_not == ['Hello','Ruby!',1,3] 
+      (@a + @b).should == ['Hello','Ruby!',1,'Hello',3,1]
+      (@b + @a).should_not == ['Hello','Ruby!',1,'Hello',3,1]
+      (@b + @a).should == ['Hello',3,1,'Hello','Ruby!',1]
+      ( (@a + @b) == (@b +@a) ).should be_false
+    end
+    it "using -" do
+      (@a - @b).should == ['Ruby!']
+      (@b - @a).should == [3]
+    end
+    it "using | " do 
+      (@a | @b).should == ['Hello','Ruby!',1,3]
+      (@b | @a).should == ['Hello',3,1,'Ruby!']
+      ( (@a | @b) == (@b | @a) ).should be_false
+    end
+    it "using &" do 
+      (@a & @b).should == ["Hello",1]
+      (@b & @a).should == ["Hello",1]
+      @b.reverse!
+      (@a & @b).should == ["Hello",1] 
+      (@b & @a).should == [1,"Hello"]
     end
   end
 
@@ -71,8 +98,11 @@ describe "Base" do
     it "delete an array's head" do 
       @a.shift.should == "Hello"
     end
-    it "delete an array's any element" do
+    it "delete an array's any element using item" do
       @a.delete_at(0).should == "Hello"
+    end
+    it "delete an array's ant element using elememt" do
+      @a.delete(1).should == 1
     end
   end
 
@@ -98,6 +128,17 @@ describe "Base" do
       ([1,2,3].inspect == [1, 2, 3].inspect).should == true
       (['a','b'].inspect == ['a', 'b'].inspect).should == true
     end
+    it "convert a array to string" do
+      @a.to_s.should_not == "\'Hello\',\'Ruby!\',1"
+      @a.to_s.should_not == "[\"Hello\",\"Ruby!\",1]"
+      @a.to_s.should == "[\"Hello\", \"Ruby!\", 1]"
+      b = [1,2,3]
+      b.to_s.should_not == "123"
+      b.to_s.should == "[1, 2, 3]"
+      b.join.should_not == "1, 2, 3"
+      b.join.should == "123"
+      b.join(', ').should == "1, 2, 3"
+    end
   end
 
   describe "Destroy methods" do
@@ -107,5 +148,5 @@ describe "Base" do
   describe "Iterator methods" do
 
   end
-
+ 
 end

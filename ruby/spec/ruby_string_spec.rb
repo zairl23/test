@@ -80,5 +80,8 @@ describe "String Methods" do
     @a.insert(-3,'y').should == "HHello Rubyy!?"
   end
   
+  it 'Convert a string to array' do
+    @a.split.should == ["Hello", "Ruby!"]
+  end
   
 end
