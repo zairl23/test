@@ -133,6 +133,17 @@ describe User do
         #end.should raise_error(ActiveRecord::RecordNotFound)
       #end
     end
+    it "should have a feed" do
+      @user.should respond_to(:feed)
+    end
+    it "should feed the microposts" do
+      @user.feed.should == [@mp2, @mp1]
+      @user.feed.include?(@mp2).should be_true
+    end
+    it "should show feed in correct user" do
+      @other_user = User.create(@attr, :email => '12@qq.com')
+      @other_user.feed.include?(@mp2).should == false
+    end
     
   end
   
