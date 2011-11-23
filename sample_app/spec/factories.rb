@@ -6,3 +6,8 @@ Factory.define :user do |user|
   user.password_confirmation "foobar"
 end
 
+Factory.define :micropost do |micropost|
+  micropost.content "Foo bar"
+  micropost.association :user
+
+end

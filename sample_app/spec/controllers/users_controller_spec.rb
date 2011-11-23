@@ -13,6 +13,8 @@ describe UsersController do
   describe "GET 'show'" do
     before(:each) do
       @user = Factory(:user)
+      @mp1 = Factory(:micropost, :user => @user, :created_at => 1.day.ago)
+      @mp2 = Factory(:micropost, :user => @user, :created_at => 1.hour.ago)
     end
     
     it "should be successful" do
@@ -24,7 +26,13 @@ describe UsersController do
       get :show, :id => @user
       assigns(:user).should == @user
     end
-
+    it "should display the user's microposts" do 
+      get :show, :id => @user
+      response.should have_selector("span", :class => "content", 
+                                            :content => @mp1.content)
+      response.should have_selector("span", :class => "content", 
+                                            :content => @mp2.content)
+    end
   end
   
   

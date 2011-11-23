@@ -4,10 +4,17 @@
       %h1
         = gravatar_for @user, :size => 30
         = @user.name
+      - unless @user.microposts.empty?
+        %table{ :calss => "microposts", :summary => "User microposts"}
+          = render @microposts
+        = will_paginate @microposts
     
     %td{ :class => "sidebar round" }
-      %strongNamme
+      %strong Name:
       = @user.name
       %br
-      %strongURL
+      %strong URL:
       = link_to user_path(@user), @user
+      %br
+      %strong Microposts:
+      = @user.microposts.count
