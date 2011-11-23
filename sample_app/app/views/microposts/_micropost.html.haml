@@ -1,0 +1,9 @@
+%tr
+  %td.microposts
+    %span.content
+      = micropost.content
+    %br
+    %span.timestamp
+      Posted
+      = time_ago_in_words(micropost.created_at)
+      ago.
