@@ -18,4 +18,5 @@ describe Micropost do
     end
   end
 
+   
 end
