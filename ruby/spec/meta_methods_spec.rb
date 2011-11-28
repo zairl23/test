@@ -5,6 +5,10 @@ class MyClass
   define_method :same_my_method do |my_arg|
     my_arg * 2
   end
+  def method_missing(method, *args)
+    puts "You called: #{method}(#{args.join(', ')})"
+    puts "(You also passed it a block)" if block_given?
+  end
 end
 
 describe "class MyClass" do
@@ -23,6 +27,11 @@ describe "class MyClass" do
   it "should call an new method using another constructed" do
     @obj.same_my_method(3).should == 6
     #define_method is in Module
-    Module.should respond_to(:define_method)
+    #Module.should respond_to(:define_method)  ??
   end
+  it "should call a missing method" do
+    (@obj.talk_simple('a', 'b')).should == "You called: talk_simple(a,b)"
+  end
+
+  
 end

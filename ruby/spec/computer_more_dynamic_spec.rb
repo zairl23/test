@@ -21,12 +21,39 @@ end
 describe "test computer" do
 
   before(:each) do
-    @com = Computer.new(42, DS.new) 
+    @data_source = DS.new
+    @com = Computer.new(42, @data_source) 
   end
   
   it "test method dynamicly" do
     @com.cpu.should == "* Cpu: 2.16 Ghz ($220)"
     @com.mouse.should == "Mouse: Dual Optical ($40)"
     @com.keyboard.should == "Keyboard: Standard UK ($20)"
+  end
+  it "test data_source's methods.grep" do
+    @data_source.methods.grep(/get/).should == [
+        :get_mouse_info,
+        :get_mouse_price,
+        :get_keyboard_info,
+        :get_keyboard_price,
+        :get_cpu_info,
+        :get_cpu_price,
+        :get_display_info,
+        :get_display_price,
+        :instance_variable_get]
+    @data_source.methods.grep(/^get/).should == [
+        :get_mouse_info,
+        :get_mouse_price,
+        :get_keyboard_info,
+        :get_keyboard_price,
+        :get_cpu_info,
+        :get_cpu_price,
+        :get_display_info,
+        :get_display_price]
+    @data_source.methods.grep(/^get(.*)info$/).should == [
+        :get_mouse_info,
+        :get_keyboard_info,
+        :get_cpu_info,
+        :get_display_info]    
   end
 end
