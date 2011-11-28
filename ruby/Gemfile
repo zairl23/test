@@ -2,3 +2,4 @@
   gem 'rspec-rails'
   gem 'watchr'
   gem 'rspec'
+  gem 'ruport'
