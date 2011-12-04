@@ -135,29 +135,45 @@ td.sidebar {
   width: 30%;
   padding: 1em;
   vertical-align: top;
+}
+/* line 100, ../../stylesheets/application.sass */
+td.sidebar .user_info img {
+  padding-right: 0.1em;
+}
+/* line 102, ../../stylesheets/application.sass */
+td.sidebar .user_info a {
+  text-decoration: none;
+}
+/* line 104, ../../stylesheets/application.sass */
+td.sidebar .user_info span.user_name {
+  position: absolute;
+}
+/* line 106, ../../stylesheets/application.sass */
+td.sidebar .user_info span.microposts {
+  font-size: 80%;
   background: #ffffcc;
 }
 
-/* line 101, ../../stylesheets/application.sass */
+/* line 110, ../../stylesheets/application.sass */
 .profile img.gravatar {
   border: 1px solid #999999;
   margin-bottom: -15px;
 }
 
 /* handle errors */
-/* line 107, ../../stylesheets/application.sass */
+/* line 116, ../../stylesheets/application.sass */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
   background-color: red;
   display: table;
 }
-/* line 112, ../../stylesheets/application.sass */
+/* line 121, ../../stylesheets/application.sass */
 .field_with_errors label {
   color: white;
 }
 
-/* line 115, ../../stylesheets/application.sass */
+/* line 124, ../../stylesheets/application.sass */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -166,7 +182,7 @@ td.sidebar {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 122, ../../stylesheets/application.sass */
+/* line 131, ../../stylesheets/application.sass */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -176,56 +192,56 @@ td.sidebar {
   background-color: #cc0000;
   color: white;
 }
-/* line 131, ../../stylesheets/application.sass */
+/* line 140, ../../stylesheets/application.sass */
 #error_explanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 5px;
 }
-/* line 136, ../../stylesheets/application.sass */
+/* line 145, ../../stylesheets/application.sass */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
 /*about users */
-/* line 141, ../../stylesheets/application.sass */
+/* line 150, ../../stylesheets/application.sass */
 ul.users {
   margin-top: 1em;
 }
-/* line 143, ../../stylesheets/application.sass */
+/* line 152, ../../stylesheets/application.sass */
 ul.users li {
   list-style: none;
 }
 
 /*about microposts */
-/* line 148, ../../stylesheets/application.sass */
+/* line 157, ../../stylesheets/application.sass */
 table.profile td.main h1 {
   margin-bottom: 1em;
 }
 
-/* line 152, ../../stylesheets/application.sass */
+/* line 161, ../../stylesheets/application.sass */
 table.microposts {
   margin-top: 1em;
 }
 
-/* line 155, ../../stylesheets/application.sass */
+/* line 164, ../../stylesheets/application.sass */
 table.microposts tr {
   height: 70px;
 }
-/* line 157, ../../stylesheets/application.sass */
+/* line 166, ../../stylesheets/application.sass */
 table.microposts tr td.gravatar {
   border-top: 1px solid #cccccc;
   vertical-align: top;
   width: 50px;
 }
-/* line 161, ../../stylesheets/application.sass */
+/* line 170, ../../stylesheets/application.sass */
 table.microposts tr td.micropost {
   border-top: 1px solid #cccccc;
   vertical-align: top;
   padding-top: 10px;
 }
-/* line 166, ../../stylesheets/application.sass */
+/* line 175, ../../stylesheets/application.sass */
 table.microposts tr span.timestamp {
   display: block;
   font-size: 85%;
@@ -233,28 +249,11 @@ table.microposts tr span.timestamp {
   padding-right: 10em;
 }
 
-/* line 172, ../../stylesheets/application.sass */
-div.user_info img {
-  padding-right: 0.1em;
-}
-/* line 174, ../../stylesheets/application.sass */
-div.user_info a {
-  text-decoration: none;
-}
-/* line 177, ../../stylesheets/application.sass */
-div.user_info span.user_name {
-  position: absolute;
-}
-/* line 180, ../../stylesheets/application.sass */
-div.user_info span.microposts {
-  font-size: 80%;
-}
-
-/* line 183, ../../stylesheets/application.sass */
+/* line 182, ../../stylesheets/application.sass */
 form.new_micropost {
   margin-bottom: 2em;
 }
-/* line 185, ../../stylesheets/application.sass */
+/* line 184, ../../stylesheets/application.sass */
 form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;

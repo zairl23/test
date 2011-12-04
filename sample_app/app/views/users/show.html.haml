@@ -8,7 +8,8 @@
         %table{ :calss => "microposts", :summary => "User microposts"}
           = render @microposts
         = will_paginate @microposts
-    
+      = render 'follow_form' if signed_in? 
+
     %td{ :class => "sidebar round" }
       %strong Name:
       = @user.name
@@ -18,3 +19,5 @@
       %br
       %strong Microposts:
       = @user.microposts.count
+      
+      = render 'shared/stats'

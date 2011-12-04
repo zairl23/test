@@ -96,7 +96,16 @@ td.sidebar
   width: 30%
   padding: 1em
   vertical-align: top
-  background: #ffc
+  .user_info 
+    img 
+      padding-right: 0.1em
+    a 
+      text-decoration: none
+    span.user_name 
+      position: absolute
+    span.microposts 
+      font-size: 80%
+      background: #ffc
 
 .profile img.gravatar 
   border: 1px solid #999
@@ -168,17 +177,7 @@ table.microposts tr
     font-size: 85%
     color: #666
     padding-right: 10em
-div.user_info 
-  img 
-    padding-right: 0.1em
-  a 
-    text-decoration: none
 
-  span.user_name 
-    position: absolute
-  
-  span.microposts 
-    font-size: 80%
 
 form.new_micropost 
   margin-bottom: 2em
