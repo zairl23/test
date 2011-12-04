@@ -11,6 +11,22 @@ describe "just hello!" do
       b.should == "Hello RubyString"
     end
 end
+describe "some others" do
+  before(:each) do
+    @a = 'it\'s me'
+  end
+  it "test \\" do
+    @a.should == 'it\'s me' 
+    
+  end
+  it "test #{}" do
+    'this is #{@a}'.should == "this is \#{@a}"#是在双引号中应用#{}
+    "this is #{@a}".should_not == "this is \#{@a}"
+    "this is #{@a}".should_not == "this is 'it's me'"#既然是内插法，应该是没有‘’的了
+    "this is #{@a}".should == "this is it's me"
+    "this is #{@a}".should == "this is #@a"#全局变量，实例变量，类的变量的使用可以省去{}
+  end
+end
 
 describe "String Methods" do
   before(:each) do
@@ -19,7 +35,7 @@ describe "String Methods" do
   
   it "counts characters in a string" do
     @a.length.should == 11
-    @a.size.should == 11#'章'.size --error
+    @a.size.should == 11 #'章'.size --error
   end
   
   it "converts a string to capitalizes" do
