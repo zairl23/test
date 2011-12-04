@@ -9,7 +9,8 @@ describe "test numberic" do
   end
   it "test float" do
     ((0.4 - 0.3) == 0.1).should_not == true
-    (0.4 - 0.3).should_not == 0.1
+    (0.4 - 0.3).should_not == 0.1#float
     (0.4 - 0.3).should ==  0.10000000000000003
   end
+  
 end
