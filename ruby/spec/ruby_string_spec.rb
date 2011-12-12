@@ -17,7 +17,6 @@ describe "some others" do
   end
   it "test \\" do
     @a.should == 'it\'s me' 
-    
   end
   it "test #{}" do
     'this is #{@a}'.should == "this is \#{@a}"#是在双引号中应用#{}
@@ -25,6 +24,16 @@ describe "some others" do
     "this is #{@a}".should_not == "this is 'it's me'"#既然是内插法，应该是没有‘’的了
     "this is #{@a}".should == "this is it's me"
     "this is #{@a}".should == "this is #@a"#全局变量，实例变量，类的变量的使用可以省去{}
+  end
+  it "test unicodes" do
+    #"\u00D7".should == "x"#error:
+    #"\u00A5".should == "¥"
+  end
+  it "test fen jie fu" do
+    %q(hello ruby!).should == "hello ruby!"
+    %q{hello ruby!}.should == %q(hello ruby!)
+    %Q{as}.should == %q(as)
+    %q{as}.should == %q(as) 
   end
 end
 
