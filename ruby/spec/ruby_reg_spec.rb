@@ -23,6 +23,7 @@ describe "regular expression" do
     /\D/.should_not  =~ '1'
     /\s/.should      =~ " " # match a whitespace character: /[[ \t\r\n\f]/
     /\S/.should_not  =~ " "
+    /\s+/.should     =~ "  " # match one or more whitespace
     /\w/.should      =~ "who" # ? match a single word character:/[a-zA-Z0-9]_/
   end
   it "repetition" do
@@ -40,8 +41,43 @@ describe "regular expression" do
     /\d{3,5}/.should   =~ "12345"
   end
   it "i test" do
-    a = "my name is neychang"
-    
+    "hello" =~ /e\w{2}/
+    # $~.should == "" got  #<MatchData "ell"> Regexp.last_match
+    $&.should == "ell" # Regexp.last_match[0]
+
+    $~.to_s.should == "ell"
+    $~.string.should == "hello"
+    $`.should == "h"  # pre_match
+    $'.should == "o"  # post_match
+    $1.should == nil # Regexp.last_match[1]
+    $2.should == nil # Regexp.last_match[2]
+    # $+.should == $& # Regexp.last_match[-1]
+    /a{2}z/.should =~ "aaz"
   end
-  
+  it "about match" do
+    # /l/.match('hello').should == #<MatchData "l">
+    (/l/ =~ "hello").should == 2
+  end
+  it "about String[] or slice(!)" do
+    string = "hello123"
+    string[/\d/].should      == "1"
+    string[/\d+/].should     == "123"
+    string[/\d{ 2 }/].should == nil # whitespace case
+    string[/\d{2}/].should   == "12"
+  end
+  it "about String split" do 
+    string = "one,three,two"
+    string.split.should             == ["one,three,two"]
+    string_other = "one, three, two"
+    string_other.split.should_not   == ["one","three","two"]
+    string_other.split.should       == ["one,","three,","two"]  
+    string_other.split(", ").should == ["one","three","two"]
+  end
+  it "about String gsub(!) and sub(!)" do
+    s = "hello,ruby!"
+    s.sub("ruby","rails").should == "hello,rails!"
+    s.sub("l","L").should == "heLlo,ruby!"
+    s.gsub("l","L").should == "heLLo,ruby!"
+    s.gsub(/e\w{2}o/,"i").should == "hi,ruby!"
+  end
 end

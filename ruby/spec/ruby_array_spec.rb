@@ -72,6 +72,10 @@ describe "Base" do
       @a.slice(0).should == 'Hello'
       @a.slice(0,2).should == ['Hello','Ruby!']
     end
+    it "select the item using regxp" do
+      (@a.select { |a| a =~ /[1]/ }).should == []
+      
+    end
   end
 
   describe "Add methods that" do
