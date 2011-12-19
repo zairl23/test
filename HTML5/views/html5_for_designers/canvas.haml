@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Canvas
+    %script{:canvas => document.getElementById('my-first-canvas'),
+            :context => canvas.getContext('2d'),
+           }
+  %body
+    %canvas{:id => "my-first-canvas", :width => "360", :height => "240"}
+
+
