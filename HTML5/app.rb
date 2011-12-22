@@ -17,3 +17,7 @@ get '/'+ "#{@items[0]}/canvas" do
   @items = ["html5_for_designers"]
   haml :"#{@items[0]}/canvas"
 end
+get '/'+ "#{@items[0]}/audio" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/audio"
+end

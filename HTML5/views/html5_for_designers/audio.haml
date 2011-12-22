@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title Audio
+    
+  %body
+    %p 周杰伦一首未发表的歌曲
+    %audio{:id => "player1", :src => "http://www.by369.com/web/jayzhidao.mp3", :controls => "", :loop => ""}
+    %button{:onclick => "document.getElementById('player1').play()"} 播放
+    %button{:onclick => "document.getElementById('player1').pause()"} 暂停
+    %button{:onclick => "document.getElementById('player1').volume += 0.1"} 增大声音
+    %button{:onclick => "document.getElementById('player1').volume -= 0.1"} 减小声音
+    %p 周杰伦--世界未末日
+    %audio{:id => "player2", :src => "http://bt.axiba.info/COFFdD0xMzI0NTM1NTk0Jmk9MTExLjE3NC4xMDcuMTA2JnU9U29uZ3MvdjEvZmFpbnRRQy9kMS82ZDQyODkyZThmMTE5MmJkNGZkNjIyNGNlMjE2NDdkMS5tcDMmbT1lY2ZmMWYyMmYzYmNjNTVjYjNjMTU5ODU3MTQxOTEzZSZ2PWxpc3RlbiZuPcrAvefEqcSpyNUmcz3W3L3cwtcmcD1z.mp3", :controls => "", :loop => ""}
+    %button{:onclick => "document.getElementById('player2').play()"} 播放
+    %button{:onclick => "document.getElementById('player2').pause()"} 暂停
+    %button{:onclick => "document.getElementById('player2').volume += 0.1"} 增大声音
+    %button{:onclick => "document.getElementById('player2').volume -= 0.1"} 减小声音
+ 
