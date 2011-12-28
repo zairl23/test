@@ -1,18 +1,11 @@
-!!! 5
-%html
-  %head
-    %title Canvas
-    
-           
-  %body
-    -# 注意canvas和js的代码顺序很重要的
-    %canvas{:id => "my-first-canvas", :width => "360", :height => "240"}
-    :javascript
-      var canvas = document.getElementById('my-first-canvas');
-      var context = canvas.getContext('2d');
-      -# 一个红色边线的矩形
-      context.strokeStyle = '#990000';
-      context.strokeRect (20,30,100,50);
+-# 注意canvas和js的代码顺序很重要的
+%canvas{:id => "my-first-canvas", :width => "360", :height => "240"}
+:javascript
+  var canvas = document.getElementById('my-first-canvas');
+  var context = canvas.getContext('2d');
+  -# 一个红色边线的矩形
+  context.strokeStyle = '#990000';
+  context.strokeRect (20,30,100,50);
  
 
 

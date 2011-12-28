@@ -21,3 +21,8 @@ get '/'+ "#{@items[0]}/audio" do
   @items = ["html5_for_designers"]
   haml :"#{@items[0]}/audio"
 end
+get '/'+ "#{@items[0]}/forms" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/forms"
+end
+

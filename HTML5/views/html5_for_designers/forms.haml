@@ -1,0 +1,55 @@
+%p
+  use placeholder:
+  %br
+  %label{:for => "hobbies"} Your hobbies
+  %input{:id => "hobbies", :name => "hobbies", :type => "text", :placeholder => "我在这"}
+  
+%p 
+  use autofocus
+  -#  it can only be used once per document.
+  %br
+  %label{:for => "status"} 发生了什么？
+  %input{:id => "status", :name => "status", :type => "text", :autofocus => ""} 
+  
+%p
+  use search
+  %br
+  %label{:for => "search"} 搜索
+  %input{:id => "search", :name => "search", :type => "search"}
+  -# also email url tel
+  
+%p
+  use range
+  %br
+  %label{:for => "range"} Range
+  %input{:id => "range", :name => "range", :type => "range",:min => "1", :max => "5"}
+  
+  %p
+  use number
+  %br
+  %label{:for => "num"} Number
+  %input{:id => "num", :name => "num", :type => "number",:min => "1", :max => "5"}
+  
+  %p
+  use date
+  %br
+  %label{:for => "date"} Date
+  %input{:id => "date", :name => "date", :type => "date"}
+  
+  
+  %p
+  use datetime
+  %br
+  %label{:for => "datetime"} DateTime
+  %input{:id => "datetime", :name => "datetime", :type => "datetime", :maxlength => "25"}
+  -# also datetime_local, month,time
+  
+  
+  %p
+  use date
+  %br
+  %label{:for => "color"} Color
+  %input{:id => "color", :name => "color", :type => "color"}
+  
+  
+  -# pattren => regexp
