@@ -3,6 +3,7 @@ require 'sinatra'
 set :root, File.dirname(__FILE__)
 
 @items = ["html5_for_designers"]
+           
 get '/' do
   @items = ["html5_for_designers"]
   haml :index
@@ -25,4 +26,11 @@ get '/'+ "#{@items[0]}/forms" do
   @items = ["html5_for_designers"]
   haml :"#{@items[0]}/forms"
 end
-
+get '/'+ "#{@items[0]}/canvas_tree" do
+   @items = ["html5_for_designers"]
+   haml :"#{@items[0]}/canvas_tree"
+end
+get '/'+ "#{@items[0]}/canvas_text" do
+   @items = ["html5_for_designers"]
+   haml :"#{@items[0]}/canvas_text"
+end

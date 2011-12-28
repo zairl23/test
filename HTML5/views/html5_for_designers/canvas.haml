@@ -6,6 +6,34 @@
   -# 一个红色边线的矩形
   context.strokeStyle = '#990000';
   context.strokeRect (20,30,100,50);
- 
+  
+-# 空心边框矩形，using style
+%canvas{:id => "biankuangjuxing", :width => "360", :height => "240", :style => "border: 1px solid"}
+:javascript
+  var canvas  = document.getElementById('biankuangjuxing');
+  var context = canvas.getContext('2d')
+  //用绝对坐标来创建一条路径
+  context.beginPath();
+  context.moveTo(70, 140);
+  context.lineTo(140, 70);
+  // 将这条线绘制到 canvas 上
+  context.stroke();
+  // 保存当前绘图状态
+  context.save();
+  // 向右下方移动绘图上下文
+  context.translate(70, 140);
+  // 以原点为起点,绘制与前面相同的线段
+  context.beginPath();
+  context.moveTo(0, 0);
+  context.lineTo(70, -70);
+  context.stroke();
+  // 恢复原有的绘图状态
+  context.restore;
+-# using text API  
+%canvas{:id => "text", :style => "border: 2px solid"}
+:javascript  
+  var canvas = document.getElementById('text');
+  var context = canvas.getContext('2d');
+  context.fillText("我是章磊",20,120)
 
 

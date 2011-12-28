@@ -1,0 +1,36 @@
+%canvas{:id => "tree"}
+:javascript
+  function careateCanopyPath(context) {
+  -# 绘制树冠
+  context.beginPath();
+  context.moveTo(-25. -50);
+  context.lineTo(-10, -80);
+  context.lineTo(-20, -80);
+  context.lineTo(-5, -110);
+  context.lineTo(-15, -110);
+  -# 树的顶点
+  context.lineTo(0, -140);
+  context.lineTo(15, -110);
+  context.lineTo(5, -110);
+  context.lineTo(20, -80);
+  context.lineTo(10, -80);
+  context.lineTo(25, -50);
+  -# 连接起点,闭合路径
+  context.closePath();
+ }
+  // 画树的函数：  
+ function drawTrails() {
+   var canvas = document.getElementById('trees');
+   var context = canvas.getContext('2d');
+   context.save();
+   context.translate(130, 250);
+   // 创建表现树冠的路径
+   createCanopyPath(context);
+   // 绘制当前路径
+   context.stroke();
+   context.restore();
+ }
+
+
+
+

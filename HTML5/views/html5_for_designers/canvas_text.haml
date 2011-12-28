@@ -1,0 +1,11 @@
+-# using text API
+-# http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#text-0  
+%canvas{:id => "text", :style => "border: 2px solid"}
+:javascript  
+  var canvas = document.getElementById('text');
+  var context = canvas.getContext('2d');
+  var a = "http://google.com";
+  context.fillText(a,20,120);
+  context.strokeText("章磊",50,100);
+  -# http://dev.w3.org/html5/spec/Overview.html#the-area-element
+  -# 如何做一个关于文字路线图的导航站
