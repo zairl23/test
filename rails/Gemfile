@@ -1,0 +1,2 @@
+# source: "http://taobao.ruby.org"
+gem "activerecord", "3.1.1"
