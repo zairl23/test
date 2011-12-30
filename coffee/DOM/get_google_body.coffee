@@ -2,13 +2,13 @@
 http = require "http"
 sys  = require "util"
 
-http.ServerRequest  ->
-  uri: "http://google.com"
-  obtain: (error,response,body) ->
+http.request(uri: "http://google.com",
+  (error,response,body) ->
     if (error && response.statusCode != 200) 
       console.log('Error when contacting google.com')
     else
     # Print the google web page.
-    sys.puts(body);
+      sys.puts(body);
+)
 # console.log http.request.obtain    
 

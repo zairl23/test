@@ -5,3 +5,5 @@ onRequest = (requset, response) ->
     response.end ''
 (http.createServer onRequest).listen 8888
 console.log "Server running on 0.0.0.0:8888"
+console.log typeof http.createServer # function
+console.log typeof onRequest # function

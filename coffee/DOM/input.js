@@ -1,7 +1,7 @@
-var request = require('request'),
-    sys = require('sys');
+var http = require('http'),
+    sys = require('util');
 
-request({ uri:'http://www.google.com' }, function (error, response, body) {
+http.request({ uri:'http://www.google.com' }, function (error, response, body) {
   if (error && response.statusCode !== 200) {
     console.log('Error when contacting google.com')
   }
