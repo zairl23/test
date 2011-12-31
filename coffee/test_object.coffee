@@ -57,6 +57,8 @@ console.log range1 # [ 1, 2, 3, 4 ]
 #assert.equal("[ 1, 2, 3, 4 ]", range1) # undefined ?
 console.log typeof range  # object
 
+# Slicing and Splicing
+
 
 
 
