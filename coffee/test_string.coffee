@@ -16,7 +16,9 @@ console.log a.charAt(5) # e
 console.log a.charCodeAt(0) # 99
 console.log a.toUpperCase() # COFFEE
 console.log a.toUpperCase #  [Function: toUpperCase]
-
+console.log a.slice(0,a.length) # coffee
+console.log a.slice(1,(a.length))# offee
+console.log a.slice(2,(a.length)) # 
 
 
 

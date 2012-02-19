@@ -150,7 +150,7 @@ describe "Base" do
   end
 
   describe "Iterator methods" do
-
+    # grep
   end
  
 end

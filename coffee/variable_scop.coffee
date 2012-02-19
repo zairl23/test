@@ -33,3 +33,22 @@ nianlin()
 console.log age # 0
 console.log "age = #{age}" # age = 0
 
+ney =
+  name: "chang"
+  des: () ->
+    return this.name
+b = {}    
+b = ney.des
+b.call name: "chances" 
+zhang = 
+  des: ney.des
+  name: "lei"  
+    
+a = new Object(ney)
+console.log b, typeof ney.des # [Fuction], 'fuction'
+console.log a.name, a.des() # return chang chang
+console.log zhang.name, zhang.des() # lei lei
+
+
+
+

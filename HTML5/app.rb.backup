@@ -1,0 +1,50 @@
+require 'rubygems'
+require 'sinatra'
+set :root, File.dirname(__FILE__)
+
+@items = {"html5_for_designers", 
+          "HTML5_and_JavaScript_Projects" => ["Building the HTML5 Logo"]
+
+
+}
+class Route
+  def initialize
+    @items = [['']]
+  end
+  def get_index
+    @items.each do |item|
+    get "/"+"#{item.first}" do
+      haml :"#{item.first}/index"
+    end
+  end
+end          
+get '/' do
+  @items = ["html5_for_designers", "HTML5_and_JavaScript_Projects"]
+  haml :index
+end
+
+get '/'+ "#{@items[0]}" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/index"
+end
+
+get '/'+ "#{@items[0]}/canvas" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/canvas"
+end
+get '/'+ "#{@items[0]}/audio" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/audio"
+end
+get '/'+ "#{@items[0]}/forms" do
+  @items = ["html5_for_designers"]
+  haml :"#{@items[0]}/forms"
+end
+get '/'+ "#{@items[0]}/canvas_tree" do
+   @items = ["html5_for_designers"]
+   haml :"#{@items[0]}/canvas_tree"
+end
+get '/'+ "#{@items[0]}/canvas_text" do
+   @items = ["html5_for_designers"]
+   haml :"#{@items[0]}/canvas_text"
+end

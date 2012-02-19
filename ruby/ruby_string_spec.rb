@@ -1,3 +1,4 @@
+# encoding: utf-8
 class RubyString < RSpec::Core::ExampleGroup
   def hello_ruby_string
     "Hello RubyString"
@@ -11,7 +12,11 @@ describe "just hello!" do
       b.should == "Hello RubyString"
     end
 end
-
+describe "create string" do
+  it "%q or %Q" do
+    # %q() %q{} %q** %q!! %Q## %q$$ .. all return ""
+  end
+end
 describe "String Methods" do
   before(:each) do
     @a = "Hello Ruby!"
@@ -20,6 +25,9 @@ describe "String Methods" do
   it "counts characters in a string" do
     @a.length.should == 11
     @a.size.should == 11#'章'.size --error
+    '""'.size.should == 2
+    "''".size.should == 2
+    "章".size.should == 1
   end
   
   it "converts a string to capitalizes" do
@@ -79,6 +87,11 @@ describe "String Methods" do
     @a.insert(-1,'?').should == "HHello Ruby!?"#not "Hello  Ruby?!"
     @a.insert(-3,'y').should == "HHello Rubyy!?"
   end
-  
-  
+  it "mutiline string created" do
+    @a = <<eod
+    Hello Ruby!
+eod
+    @a.should == "Hello Ruby!"
+  end 
+ 
 end
